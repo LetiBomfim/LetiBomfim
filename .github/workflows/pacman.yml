@@ -1,6 +1,6 @@
 on:
-  schedule: # execute every 12 hours
-    - cron: "*/12 * * * *" # Runs every minute, every 12 hours
+  schedule:
+    - cron: "0 */12 * * *"
 
   workflow_dispatch:
 
@@ -25,3 +25,4 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
+          build_dir: .
