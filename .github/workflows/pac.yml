@@ -1,10 +1,10 @@
+name: Pacman Schedule
+
 on:
   push:
     branches:
-      - master
-
+      - master  # Mude para 'main' se o seu repositório usar esse nome
   workflow_dispatch:
-
   schedule:
     - cron: "0 */12 * * *"
 
@@ -25,9 +25,11 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
 
       - name: Publish to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+        uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
           build_dir: .
+          keep_history: true
+          commit_message: "Update Pacman Graph [skip ci]"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
