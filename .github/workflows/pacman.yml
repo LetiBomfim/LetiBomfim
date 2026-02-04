@@ -18,18 +18,24 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+      
       - name: Generate pacman contribution graph
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
 
+      # Passo novo para garantir que os arquivos estão no lugar certo
+      - name: Prepare files
+        run: |
+          mkdir -p dist
+          mv pacman-contribution-graph.svg dist/ 2>/dev/null || true
+          mv pacman-contribution-graph-dark.svg dist/ 2>/dev/null || true
+
       - name: Publish to output branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
-          build_dir: .
+          build_dir: dist  # Agora apontamos para a pasta dist
           keep_history: true
-          commit_message: "Update Pacman Graph [skip ci]"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
