@@ -107,3 +107,9 @@ src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-origi
 
 <br><br>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LetiBomfim/LetiBomfim/output/pacman-contribution-graph-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LetiBomfim/LetiBomfim/output/pacman-contribution-graph.svg">
+  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/LetiBomfim/LetiBomfim/output/pacman-contribution-graph.svg">
+</picture>
+
